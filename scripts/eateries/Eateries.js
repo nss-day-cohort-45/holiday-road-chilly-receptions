@@ -19,12 +19,12 @@ const render = eateriesCollection => {
         Look back at the example provided above.
     */
     contentTarget.innerHTML = `
-        <select class="dropdown" id="ParkSelect">
-            <option value="0">Chose your ...</option>
+        <select class="dropdown" id="EateriesSelect">
+            <option value="0">Chose your Restaurant...</option>
             ${
                 eateriesCollection.map((eateries) => `
                   <option value=${eateries.id}>
-                    ${eateries.buisnessName}
+                    ${eateries.businessName}
                   </option>
                 `)
             }
