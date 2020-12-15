@@ -1,4 +1,3 @@
-
 let eateries = []
 
 export const copiedEateries = () => {
