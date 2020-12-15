@@ -11,7 +11,7 @@ export const getEateries = () => {
         response => response.json())
         .then (
             parsedEateries => {
-                console.table(parsedEateries)
+                // console.table(parsedEateries)
                 eateries = parsedEateries
             }
         )    
