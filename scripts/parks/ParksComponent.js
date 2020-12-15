@@ -32,6 +32,18 @@ const render = parksCollection => {
     `
 }
 
+export const Park = (parkObj) => {
+  return `
+    <article class="parks">
+      <h2>${parkObj.fullName}</h2>
+      </article>
+      `
+    }
+
+    
+    
+    //   <button id="associates--${parkObj.id}">Associate Alibis</button>
+
 // eventHub.addEventListener("click", (event) => {
     //   if (event.target.id.includes("??--")) {
     //     const customEvent = new CustomEvent("detailsBtnClicked", {
@@ -42,17 +54,6 @@ const render = parksCollection => {
     //     eventHub.dispatchEvent(customEvent)
     //   }
     // })
-// export const Park = (parkObj) => {
-//   return `
-//     <article class="parks">
-//       <h2>${parkObj.fullName}</h2>
-//       <div>Park: ${parkObj.conviction}</div>
-//       <div>Term Start: ${new Date(parkObj.incarceration.start).toLocaleDateString('en-US')}</div>
-//       <div>Term End: ${new Date(parkObj.incarceration.end).toLocaleDateString('en-US')}</div>
-//       <button id="associates--${parkObj.id}">Associate Alibis</button>
-//     </article>
-//   `
-// }
 
 
 
