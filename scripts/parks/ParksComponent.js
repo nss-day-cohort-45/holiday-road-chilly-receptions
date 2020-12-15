@@ -1,5 +1,5 @@
 import {getParks, copiedParks} from "./ParkProvider.js"
-const contentTarget = document.querySelector(".container")
+const contentTarget = document.querySelector(".filters__park")
 
 
 export const ParkSelect = () => {
