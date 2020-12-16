@@ -1,7 +1,9 @@
 import { copiedParks } from '../parks/ParkProvider.js'
+import { copiedEateries } from "../eateries/EateryProvider.js"
 
 const eventHub = document.querySelector(".container")
-const chosenPark = document.querySelector(".itineraryPreview")
+const chosenPark = document.querySelector(".parkChosen")
+const chosenRestaurant = document.querySelector(".restaurantChosen")
 
 // PARK SELECT - LISTENER
 eventHub.addEventListener('parkChosen', event => {
@@ -25,6 +27,33 @@ const renderParkName = (parkName) => {
   <h2>Chosen Park: ${parkName}</h2>
   `
 }
+
+// Eatery SELECT - LISTENER
+eventHub.addEventListener('eateryChosen', event => {
+
+  // If the user's selected value is not 0
+  if (event.detail.eateryThatWasChosen !== "0"){
+      
+      // Store your copiedEateries array into a variable
+      const eateries = copiedEateries()
+      // Finding one object that matches the park ID to the park value that was selected
+      const eateryChosen = eateries.find( (aRestaurant) => aRestaurant.id === parseInt(event.detail.eateryThatWasChosen) )
+      // Renders the full name of the park which is a property on the object of parkChosen
+      // We needed to go down and dot notate to get the fullName property
+      renderRestaurantName(eateryChosen.businessName)
+  }
+})
+
+// HTML representation of the full name of the chosen park
+const renderRestaurantName = (restaurantName) => {
+  chosenRestaurant.innerHTML = `
+  <h2>Chosen Restaurant: ${restaurantName}</h2>
+  `
+}
+
+
+
+
 
 
 // GRAVEYARD
