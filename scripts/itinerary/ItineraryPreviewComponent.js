@@ -28,6 +28,7 @@ eventHub.addEventListener('parkChosen', event => {
 const renderParkName = (parkName) => {
   chosenPark.innerHTML = `
   <h2>Chosen Park: ${parkName}</h2>
+  <button id="parksButton ${parkName.id}">Park Details</button>
   `
 }
 
@@ -51,6 +52,7 @@ eventHub.addEventListener('eateryChosen', event => {
 const renderRestaurantName = (restaurantName) => {
   chosenRestaurant.innerHTML = `
   <h2>Chosen Restaurant: ${restaurantName}</h2>
+  <button id="restaurant--${restaurantName.id}">Restaurant Details</button>
   `
 }
 
@@ -74,7 +76,7 @@ eventHub.addEventListener('attractionChosen', event => {
 const renderAttractionName = (attractionName) => {
   chosenAttraction.innerHTML = `
   <h2>Chosen Attraction: ${attractionName}</h2>
-  `
+  <button id="attraction--${attractionName.id}">Attraction Details</button> `
 }
 
 

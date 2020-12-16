@@ -50,27 +50,25 @@ const render = parksCollection => {
 
 
 // DETAILS BUTTON
-// eventHub.addEventListener("click", (event) => {
-//       if (event.target.id.includes("??--")) {
-//         const customEvent = new CustomEvent("detailsBtnClicked", {
-//           detail: {
-//             clickedParksDetailsButton: event.target.id.split("--")[1]
-//           }
-//         })
-//         eventHub.dispatchEvent(customEvent)
-//       }
-//     })
+eventHub.addEventListener("click", event => {
+      if (event.target.id === "parksButton") {
+        const customEvent = new CustomEvent("detailsBtnClicked") 
+        eventHub.dispatchEvent(customEvent)
+      }
+})
 
-export const Park = (parkObj) => {
-  return `
-    <article class="parks">
-      <h2>${parkObj.fullName}</h2>
-      </article>
-      `
-    }
+// export const Park = (parkObj) => {
+//   return `
+//     <article class="parks">
+//       <h2>${parkObj.fullName}</h2>
+      
+//       </article>
+
+//       `
+//     }
 
     // DETAILS BUTTON
-    //   <button id="associates--${parkObj.id}">Associate Alibis</button>
+      // <button id="associates--${parkObj.id}">Associate Alibis</button>
 
 
 
