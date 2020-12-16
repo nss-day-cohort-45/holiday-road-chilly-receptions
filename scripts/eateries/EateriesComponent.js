@@ -1,5 +1,22 @@
 import {getEateries, copiedEateries } from "./EateryProvider.js"
 const contentTarget = document.querySelector(".filters__eatery")
+const eventHub = document.querySelector(".container")
+ 
+// Eatery SELECT - DISPATCH
+eventHub.addEventListener("change", event => {
+
+  if (event.target.id === "EateriesSelect") {
+
+      const customEvent = new CustomEvent("eateryChosen", {
+        // Only use detail for a dropdown type event - selecting something specific/ value
+          detail: {
+              eateryThatWasChosen: event.target.value
+          }
+      })
+
+      eventHub.dispatchEvent(customEvent)
+  }
+})
 
 
 export const EateriesSelect = () => {
@@ -20,7 +37,7 @@ const render = eateriesCollection => {
     */
     contentTarget.innerHTML = `
         <select class="dropdown" id="EateriesSelect">
-            <option value="0">Chose your Restaurant...</option>
+            <option value="0">Chose your restaurant...</option>
             ${
                 eateriesCollection.map((eateries) => `
                   <option value=${eateries.id}>
