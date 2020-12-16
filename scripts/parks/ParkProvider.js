@@ -17,5 +17,5 @@ export const getParks = () => {
             }
         )    
 }
-// parsedparks  is an obj that conatins an array. adding dot data to drop down one level into 
+// parsedparks  is an obj that contains an array. adding dot data to drop down one level into 
 // parsedparks to get the array that lives inside of data
