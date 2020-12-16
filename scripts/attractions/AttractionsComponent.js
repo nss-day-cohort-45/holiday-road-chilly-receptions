@@ -1,6 +1,23 @@
 import { copiedAttractions, getAttractions} from "./AttractionProvider.js"
-const contentTarget = document.querySelector(".filters__attraction")
 
+const contentTarget = document.querySelector(".filters__attraction")
+const eventHub = document.querySelector(".container")
+
+//Attraction Select Dispatch (shout)
+eventHub.addEventListener("change", event => {
+
+  if (event.target.id === "AttractionSelect") {
+
+      const customEvent = new CustomEvent("attractionChosen", {
+        // Only use detail for a dropdown type event - selecting something specific/ value
+          detail: {
+              attractionThatWasChosen: event.target.value
+          }
+      })
+
+      eventHub.dispatchEvent(customEvent)
+  }
+})
 
 export const AttractionSelect = () => {
     // Trigger fetching the API data and then loading it into application state
