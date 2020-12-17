@@ -1,6 +1,6 @@
 import { copiedAttractions } from "../attractions/AttractionProvider.js";
+import { copiedEateries } from "../eateries/EateryProvider.js";
 import { copiedParks, getParks } from "../parks/ParkProvider.js" 
-
 
 const eventHub = document.querySelector('.container');
 const parkPopUp = document.querySelector('.detailDialog')
@@ -28,10 +28,10 @@ eventHub.addEventListener('attractionDetailsBtnClicked', evt => {
 
 eventHub.addEventListener('restaurantDetailsBtnClicked', evt => {
   const usingRestaurantId = evt.detail.restaurantId; 
-  const restaurants = getEateries(); 
+  const restaurants = copiedEateries(); 
   const chosenRestaurant = restaurants.find(restaurant => restaurant.id === parseInt(usingRestaurantId)); 
 
-  openDialogRestaurant(attractionPop(chosenRestaurant)); 
+  openDialogRestaurant(restaurantPop(chosenRestaurant)); 
 });
 
 const parkPop= (chosenPark) => {

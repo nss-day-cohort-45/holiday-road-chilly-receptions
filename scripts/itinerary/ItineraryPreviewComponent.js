@@ -75,15 +75,15 @@ eventHub.addEventListener('eateryChosen', event => {
       const eateryChosen = eateries.find( (aRestaurant) => aRestaurant.id === parseInt(event.detail.eateryThatWasChosen) )
       // Renders the full name of the restaurant which is a property on the object of restaurantChosen
       // We needed to go down and dot notate to get the fullName property
-      renderRestaurantName(eateryChosen.businessName)
+      renderRestaurantName(eateryChosen)
   }
 })
 
 // HTML representation of the full name of the chosen restaurant
-const renderRestaurantName = (restaurantName) => {
+const renderRestaurantName = (restaurantObj) => {
   chosenRestaurant.innerHTML = `
-  <h2>Chosen Restaurant: ${restaurantName}</h2>
-  <button id="restaurantButton--${restaurantName.id}">Restaurant Details</button>
+  <h2>Chosen Restaurant: ${restaurantObj.businessName}</h2>
+  <button id="restaurantButton--${restaurantObj.id}">Restaurant Details</button>
   `
 }
 
