@@ -10,7 +10,7 @@ import "./Buttons/detailsButtons.js"
 import { getWeather } from "./weather/WeatherProvider.js"
 import "./weather/WeatherComponent.js"
 
-getParks()
+// getParks()
 getEateries()
 getAttractions()
 ParkSelect()

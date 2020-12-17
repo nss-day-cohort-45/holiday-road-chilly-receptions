@@ -5,7 +5,7 @@ const eventHub = document.querySelector(".container")
 // PARK SELECT - DISPATCH
 eventHub.addEventListener("change", event => {
 
-  if (event.target.id === "ParkSelect") {
+  if (event.target.id === "parkSelect") {
 
       const customEvent = new CustomEvent("parkChosen", {
         // Only use detail for a dropdown type event - selecting something specific/ value
@@ -31,7 +31,7 @@ export const ParkSelect = () => {
 // Park Dropdown HTML
 const render = parksCollection => {
  contentTarget.innerHTML = `
- <select class="dropdown" id="ParkSelect">
+ <select class="dropdown" id="parkSelect">
  <option value="0">Chose your destination...</option>
  ${
    parksCollection.map((parks) => `
