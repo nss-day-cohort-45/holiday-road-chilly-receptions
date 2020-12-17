@@ -1,7 +1,7 @@
-import { copiedParks } from "../parks/ParkProvider.js"
+import { copiedParks, getParks } from "../parks/ParkProvider.js"
 
 const eventHub = document.querySelector('.container');
-const parkPopUp = document.querySelector('.detailParkButton')
+const parkPopUp = document.querySelector('.detailParkDialog')
 
 // try it criminals buttons way
 // We think that this is creating the buttonclicked event
@@ -9,24 +9,26 @@ eventHub.addEventListener('detailsBtnClicked', evt => {
   const parkId = evt.detail.parkId;
   // What does  .parkId  relate to?
   const parks = copiedParks();
-  const chosenPark = parks.find(c => c.id === parkId);
+  const chosenPark = parks.find(park => park.id === parkId);
 
-  openDialog(chosenPark);
+  openDialog(parkPop(chosenPark));
 });
 
-const parkPop= () => {
+
+const parkPop= (chosenPark) => {
 return `
     <section class="detailsPark">
       <div class="parksDetailsBox">
         <h1>Park Details</h1>
         <div class="ParksDetails__list">
-          ${chosenPark.map(p => ParkCard(p)).join("")}
+          ${ParkCard(chosenPark)}
         </div>
           <button id="close-details-dialog">Close</button>
       </div>
     </section>
   `;
 };
+
 const ParkCard = (chosenPark) => {
   return `
     <div class="park-details__card">
@@ -62,8 +64,8 @@ const closeDialog = () => {
 };
 
 const openDialog = (taco) => {
-  const container = document.querySelector('.detailParkButton');
-  parkPopUp.innerHTML = parkPop(taco);
+  parkPopUp.innerHTML = taco;
+  parkPopUp.show() 
 };
 
 

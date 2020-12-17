@@ -49,10 +49,16 @@ const render = parksCollection => {
 }
 
 
-// DETAILS BUTTON
+// DETAILS BUTTON - DISPATCH
 eventHub.addEventListener("click", event => {
-      if (event.target.id === "parksButton") {
-        const customEvent = new CustomEvent("detailsBtnClicked") 
+      if (event.target.id.startsWith("parksButton")) {
+        const secondHalfOfId = event.target.id.split("--")[1]
+        const customEvent = new CustomEvent("detailsBtnClicked", {
+            detail: {
+                parkId: secondHalfOfId
+            }
+        })
+
         eventHub.dispatchEvent(customEvent)
       }
 })
