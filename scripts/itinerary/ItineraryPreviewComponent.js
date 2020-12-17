@@ -22,7 +22,7 @@ eventHub.addEventListener('restaurantChosen', event => {
 })
 
 eventHub.addEventListener('attractionChosen', event => {
-  if (event.detail.attractionThatWasChosen !== "0") {
+  if (event.detail.attractionThatWasChosen !== 0) {
     renderSaveButton()
   }
 })
@@ -83,7 +83,7 @@ eventHub.addEventListener('eateryChosen', event => {
 const renderRestaurantName = (restaurantName) => {
   chosenRestaurant.innerHTML = `
   <h2>Chosen Restaurant: ${restaurantName}</h2>
-  <button id="restaurant--${restaurantName.id}">Restaurant Details</button>
+  <button id="restaurantButton--${restaurantName.id}">Restaurant Details</button>
   `
 }
 
@@ -99,15 +99,16 @@ eventHub.addEventListener('attractionChosen', event => {
       const attractionChosen = attractions.find( (aAttraction) => aAttraction.id === parseInt(event.detail.attractionThatWasChosen) )
       // Renders the full name of the restaurant which is a property on the object of attractionChosen
       // We needed to go down and dot notate to get the Name property
-      renderAttractionName(attractionChosen.name)
+      renderAttractionName(attractionChosen)
+      //console.log(attractionChosen.name)
   }
 })
 
 // HTML representation of the full name of the chosen attraction
 const renderAttractionName = (attractionName) => {
   chosenAttraction.innerHTML = `
-  <h2>Chosen Attraction: ${attractionName}</h2>
-  <button id="attraction--${attractionName.id}">Attraction Details</button> `
+  <h2>Chosen Attraction: ${attractionName.name}</h2>
+  <button id="attractionButton--${attractionName.id}">Attraction Details</button> `
 }
 
 
