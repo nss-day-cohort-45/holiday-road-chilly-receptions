@@ -28,12 +28,8 @@ export const ParkSelect = () => {
   })
 }
 
+// Park Dropdown HTML
 const render = parksCollection => {
-  /*
-  Use interpolation here to invoke the map() method on
-  the convictionsCollection to generate the option elements.
-  Look back at the example provided above.
-  */
  contentTarget.innerHTML = `
  <select class="dropdown" id="ParkSelect">
  <option value="0">Chose your destination...</option>
@@ -73,30 +69,3 @@ eventHub.addEventListener("click", event => {
         eventHub.dispatchEvent(customEvent)
       }
 })
-
-// export const Park = (parkObj) => {
-//   return `
-//     <article class="parks">
-//       <h2>${parkObj.fullName}</h2>
-      
-//       </article>
-
-//       `
-//     }
-
-    // DETAILS BUTTON
-      // <button id="associates--${parkObj.id}">Associate Alibis</button>
-
-
-
-
-// parks: {
-//     fullName: string
-//     description: string
-//     addresses: string
-//     operatingHours: string
-//     contacts.phoneNumbers.phoneNumber: string
-//     id: number
-//     }
-    
-    
