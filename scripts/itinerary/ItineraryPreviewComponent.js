@@ -17,14 +17,21 @@ eventHub.addEventListener('parkChosen', event => {
       // Store your copiedParks array into a variable
       const parks = copiedParks()
       // Finding one object that matches the park ID to the park value that was selected
-      const parkChosen = parks.find( (aPark) => aPark.id === event.detail.parkThatWasChosen )
+      const parkChosen = parks.find( (aPark) => aPark.id === event.detail.parkThatWasChosen )  
       // Renders the full name of the park which is a property on the object of parkChosen
       // We needed to go down and dot notate to get the fullName property
-      renderParkName(parkChosen)
+      
+      renderParkName(parkChosen) //We are using renderParkName, and parkChosen is the object that we're passing through it.
   }
 })
 
 // HTML representation of the full name of the chosen park
+
+/*
+In renderParkName, park is like taco. It's just a word that is only connected
+to other words within renderParkName. The thing that it accepts is an
+object. 
+*/
 const renderParkName = (park) => {
   chosenPark.innerHTML = `
   <h2>Chosen Park: ${park.fullName}</h2>
