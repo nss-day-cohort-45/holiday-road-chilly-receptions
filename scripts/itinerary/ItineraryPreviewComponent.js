@@ -20,14 +20,15 @@ eventHub.addEventListener('parkChosen', event => {
       const parkChosen = parks.find( (aPark) => aPark.id === event.detail.parkThatWasChosen )
       // Renders the full name of the park which is a property on the object of parkChosen
       // We needed to go down and dot notate to get the fullName property
-      renderParkName(parkChosen.fullName)
+      renderParkName(parkChosen)
   }
 })
 
 // HTML representation of the full name of the chosen park
-const renderParkName = (parkName) => {
+const renderParkName = (park) => {
   chosenPark.innerHTML = `
-  <h2>Chosen Park: ${parkName}</h2>
+  <h2>Chosen Park: ${park.fullName}</h2>
+  <button id="parksButton--${park.id}">Park Details</button>
   `
 }
 
@@ -51,6 +52,7 @@ eventHub.addEventListener('eateryChosen', event => {
 const renderRestaurantName = (restaurantName) => {
   chosenRestaurant.innerHTML = `
   <h2>Chosen Restaurant: ${restaurantName}</h2>
+  <button id="restaurant--${restaurantName.id}">Restaurant Details</button>
   `
 }
 
@@ -74,7 +76,7 @@ eventHub.addEventListener('attractionChosen', event => {
 const renderAttractionName = (attractionName) => {
   chosenAttraction.innerHTML = `
   <h2>Chosen Attraction: ${attractionName}</h2>
-  `
+  <button id="attraction--${attractionName.id}">Attraction Details</button> `
 }
 
 
