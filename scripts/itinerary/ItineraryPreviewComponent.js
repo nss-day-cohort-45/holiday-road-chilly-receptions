@@ -20,15 +20,15 @@ eventHub.addEventListener('parkChosen', event => {
       const parkChosen = parks.find( (aPark) => aPark.id === event.detail.parkThatWasChosen )
       // Renders the full name of the park which is a property on the object of parkChosen
       // We needed to go down and dot notate to get the fullName property
-      renderParkName(parkChosen.fullName)
+      renderParkName(parkChosen)
   }
 })
 
 // HTML representation of the full name of the chosen park
-const renderParkName = (parkName) => {
+const renderParkName = (park) => {
   chosenPark.innerHTML = `
-  <h2>Chosen Park: ${parkName}</h2>
-  <button id="parksButton ${parkName.id}">Park Details</button>
+  <h2>Chosen Park: ${park.fullName}</h2>
+  <button id="parksButton--${park.id}">Park Details</button>
   `
 }
 
