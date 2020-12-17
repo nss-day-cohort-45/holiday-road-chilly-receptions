@@ -4,8 +4,6 @@ let parks = []
 
 export const copiedParks = () =>  parks.slice()
 
-console.log("is parks working",parks)
-
 export const getParks = () => {
     return fetch(`https://developer.nps.gov/api/v1/parks?parkCode=&api_key=${settings.npsKey}`)
     .then(
