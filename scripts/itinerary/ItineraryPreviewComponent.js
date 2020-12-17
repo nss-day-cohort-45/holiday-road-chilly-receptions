@@ -37,7 +37,7 @@ eventHub.addEventListener('eateryChosen', event => {
   // If the user's selected value is not 0
   if (event.detail.eateryThatWasChosen !== "0"){
       
-      // Store your copie attractions array into a variable
+      // Store your copied attractions array into a variable
       const eateries = copiedEateries()
       // Finding one object that matches the restaurant ID to the restaurant value that was selected
       const eateryChosen = eateries.find( (aRestaurant) => aRestaurant.id === parseInt(event.detail.eateryThatWasChosen) )
