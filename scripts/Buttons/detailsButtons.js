@@ -62,6 +62,7 @@ const ParkCard = (chosenPark) => {
     // <div class="park-details__contacts"> ${chosenPark.contacts.phoneNumbers.phoneNumber} </div>
 
     const attractionPop= (chosenAttraction) => {
+      console.log("chosenAttraction", chosenAttraction)
 return `
     <section class="detailsAttraction">
       <div class="attractionDetailsBox">
@@ -76,7 +77,6 @@ return `
 };
 
 const AttractionCard = (chosenAttraction) => {
-  console.log("chosenAttraction", chosenAttraction)
   return `
   <div class="attraction-details__card">
   <div class="attraction-details__name"> ${chosenAttraction.name} </div>
