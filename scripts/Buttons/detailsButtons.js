@@ -30,7 +30,12 @@ return `
 };
 
 const ParkCard = (chosenPark) => {
-  console.log(chosenPark.operatingHours)
+  // console.log(chosenPark.operatingHours)
+  // const operatingHours = chosenPark.operatingHours[0]
+  // console.log(operatingHours, "this is op")
+  // operatingHours.push(chosenPark.operatingHours)
+  // console.log(operatingHours, "operating hours")
+
   return `
     <div class="park-details__card">
       <div class="park-details__name"> ${chosenPark.fullName} </div>
