@@ -5,6 +5,7 @@ import { copiedParks, getParks } from "../parks/ParkProvider.js"
 const eventHub = document.querySelector('.container');
 const parkPopUp = document.querySelector('.detailDialog')
 const attractionPopUp = document.querySelector('.detailDialog')
+const restaurantPopUp = document.querySelector('.detailDialog')
 
 /*
 
@@ -25,7 +26,13 @@ eventHub.addEventListener('attractionDetailsBtnClicked', evt => {
   openDialogAttraction(attractionPop(chosenAttraction)); 
 });
 
+eventHub.addEventListener('restaurantDetailsBtnClicked', evt => {
+  const usingRestaurantId = evt.detail.restaurantId; 
+  const restaurant = copiedRestaurant(); 
+  const chosenRestaurant = restaurant.find(restaurant => restaurant.id === parseInt(usingRestaurantId)); 
 
+  openDialogRestaurant(attractionPop(chosenRestaurant)); 
+});
 
 const parkPop= (chosenPark) => {
 return `
@@ -62,7 +69,6 @@ const ParkCard = (chosenPark) => {
     // <div class="park-details__contacts"> ${chosenPark.contacts.phoneNumbers.phoneNumber} </div>
 
 const attractionPop= (chosenAttraction) => {
-      console.log("chosenAttraction", chosenAttraction)
 return `
     <section class="detailsAttraction">
       <div class="attractionDetailsBox">
@@ -86,6 +92,30 @@ const AttractionCard = (chosenAttraction) => {
   
 };
 
+const restaurantPop= (chosenRestaurant) => {
+return `
+    <section class="detailsRestaurant">
+      <div class="restaurantDetailsBox">
+        <h1>Restaurant Details</h1>
+        <div class="RestaurantDetails__list">
+          ${restaurantCard(chosenRestaurant)}
+        </div>
+          <button id="close-details-dialog-restaurant">Close</button>
+      </div>
+    </section>
+  `;
+};
+
+const restaurantCard = (chosenRestaurant) => {
+  return `
+  <div class="restaurant-details__card">
+  <div class="restaurant-details__name"> ${chosenRestaurant.businessName} </div>
+  <div class="restaurant-details__description"> ${chosenRestaurant.description} </div>
+  </div>
+  `;
+  
+};
+
 
 
 eventHub.addEventListener('click', evt => {
@@ -99,7 +129,6 @@ window.addEventListener('keydown', evt => {
     closeDialogPark();
   }
 });
-
 
 const closeDialogPark = (taco) => {
   parkPopUp.innerHTML = taco;
@@ -134,6 +163,41 @@ const openDialogAttraction = (taco) => {
   attractionPopUp.innerHTML = taco;
   attractionPopUp.show()
 }
+
+eventHub.addEventListener('click', evt => {
+  if (evt.target.id === 'close-details-dialog-restaurant' ||
+    evt.target.classList.contains('restaurant-details')) {
+    closeDialogRestaurant();
+  }
+})
+window.addEventListener('keydown', evt => {
+  if (evt.key === 'Escape') {
+    closeDialogRestaurant();
+  }
+});
+
+
+const closeDialogRestaurant = (taco) => {
+  restaurantPopUp.innerHTML = taco;
+  restaurantPopUp.close()
+};
+
+const openDialogRestaurant = (taco) => { 
+  restaurantPopUp.innerHTML = taco;
+  restaurantPopUp.show()
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 // const AssociateDialog = (associates) => {
 //   return `

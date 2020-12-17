@@ -100,7 +100,7 @@ eventHub.addEventListener('attractionChosen', event => {
       // Renders the full name of the restaurant which is a property on the object of attractionChosen
       // We needed to go down and dot notate to get the Name property
       renderAttractionName(attractionChosen)
-      //console.log(attractionChosen.name)
+      console.log(attractionChosen.name)
   }
 })
 
