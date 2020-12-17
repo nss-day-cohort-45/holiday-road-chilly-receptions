@@ -1,18 +1,30 @@
+import { copiedAttractions } from "../attractions/AttractionProvider.js";
 import { copiedParks, getParks } from "../parks/ParkProvider.js" 
 
+
 const eventHub = document.querySelector('.container');
-const parkPopUp = document.querySelector('.detailParkDialog')
+const parkPopUp = document.querySelector('.detailDialog')
+const attractionPopUp = document.querySelector('.detailDialog')
 
 /*
 
 */
-eventHub.addEventListener('detailsBtnClicked', evt => {
+eventHub.addEventListener('parkDetailsBtnClicked', evt => {
   const usingParkId = evt.detail.parkId; //parkId relates to the split off from the cray ID that we just received from our eventHub (from Parks component)
   const parks = copiedParks(); //making it available for use to access all of the parks, so it is an array of the parks
   const chosenPark = parks.find(park => park.id === usingParkId); //this is going through all of the parks and FINDing the one that matches the id of the one that was clicked, AKA the id of usingParkId
 
-  openDialog(parkPop(chosenPark)); //we're calling the function openDialog. We're passing the function parkPop into it with a parameter of chosenPark.
+  openDialogPark(parkPop(chosenPark)); //we're calling the function openDialogPark. We're passing the function parkPop into it with a parameter of chosenPark.
 });
+
+eventHub.addEventListener('attractionDetailsBtnClicked', evt => {
+  const usingAttractionId = evt.detail.attractionId; 
+  const attractions = copiedAttractions(); 
+  const chosenAttraction = attractions.find(attraction => attraction.id === usingAttractionId); 
+
+  openDialogAttraction(attractionPop(chosenAttraction)); 
+});
+
 
 
 const parkPop= (chosenPark) => {
@@ -23,14 +35,13 @@ return `
         <div class="ParksDetails__list">
           ${ParkCard(chosenPark)}
         </div>
-          <button id="close-details-dialog">Close</button>
+          <button id="close-details-dialog-park">Close</button>
       </div>
     </section>
   `;
 };
 
 const ParkCard = (chosenPark) => {
-  console.log(chosenPark.operatingHours)
   return `
     <div class="park-details__card">
       <div class="park-details__name"> ${chosenPark.fullName} </div>
@@ -39,35 +50,84 @@ const ParkCard = (chosenPark) => {
   `;
   
 };
-  // These are meant to be used right below the park-details__description
-      // <div class="park-details__address"> ${chosenPark.addresses} </div>
-      // <div class="park-details__operatingHours"> ${chosenPark.operatingHours.standardHours} </div>
-      // <div class="park-details__contacts"> ${chosenPark.contacts.phoneNumbers.phoneNumber} </div>
+// These are meant to be used right below the park-details__description
+    // <div class="park-details__address"> ${chosenPark.addresses} </div>
+    // <div class="park-details__operatingHours"> ${chosenPark.operatingHours.standardHours} </div>
+    // <div class="park-details__contacts"> ${chosenPark.contacts.phoneNumbers.phoneNumber} </div>
+
+    const attractionPop= (chosenAttraction) => {
+return `
+    <section class="detailsAttraction">
+      <div class="attractionDetailsBox">
+        <h1>Attraction Details</h1>
+        <div class="AttractionDetails__list">
+          ${AttractionCard(chosenAttraction)}
+        </div>
+          <button id="close-details-dialog-attraction">Close</button>
+      </div>
+    </section>
+  `;
+};
+
+const AttractionCard = (chosenAttraction) => {
+  console.log("chosenAttraction", chosenAttraction)
+  return `
+  <div class="attraction-details__card">
+  <div class="attraction-details__name"> ${chosenAttraction.name} </div>
+  <div class="attraction-details__description"> ${chosenAttraction.description} </div>
+  </div>
+  `;
+  
+};
+
 
 
 eventHub.addEventListener('click', evt => {
-  if (evt.target.id === 'close-details-dialog' ||
+  if (evt.target.id === 'close-details-dialog-park' ||
     evt.target.classList.contains('park-details')) {
-    closeDialog();
+    closeDialogPark();
   }
 })
 window.addEventListener('keydown', evt => {
   if (evt.key === 'Escape') {
-    closeDialog();
+    closeDialogPark();
   }
 });
 
 
-const closeDialog = (taco) => {
+const closeDialogPark = (taco) => {
   parkPopUp.innerHTML = taco;
   parkPopUp.close()
 };
 
-const openDialog = (taco) => { //this openDialog creates the info that will be shown in the details button. taco is an object.
+const openDialogPark = (taco) => { //this openDialogPark creates the info that will be shown in the details button. taco is an object.
   parkPopUp.innerHTML = taco;
   parkPopUp.show() //makes the details actually visible on the page.
 };
 
+
+eventHub.addEventListener('click', evt => {
+  if (evt.target.id === 'close-details-dialog-attraction' ||
+    evt.target.classList.contains('attraction-details')) {
+    closeDialogAttraction();
+  }
+})
+window.addEventListener('keydown', evt => {
+  if (evt.key === 'Escape') {
+    closeDialogAttraction();
+  }
+});
+
+
+const closeDialogAttraction = (taco) => {
+  attractionPopUp.innerHTML = taco;
+  attractionPopUp.close()
+};
+
+const openDialogAttraction = (taco) => { 
+  attractionPopUp.innerHTML = taco;
+  attractionPopUp.show()
+}
 
 // const AssociateDialog = (associates) => {
 //   return `
@@ -90,4 +150,5 @@ const openDialog = (taco) => { //this openDialog creates the info that will be s
 //       <div class="associate-dialog__alibi"> ${associate.alibi} </div>
 //     </div>
 //   `;
-// };
+// }
+
