@@ -14,6 +14,9 @@ eventHub.addEventListener('detailsBtnClicked', evt => {
   openDialog(parkPop(chosenPark)); //we're calling the function openDialog. We're passing the function parkPop into it with a parameter of chosenPark.
 });
 
+eventHub.addEventListener('', event => {
+  
+})
 
 const parkPop= (chosenPark) => {
 return `

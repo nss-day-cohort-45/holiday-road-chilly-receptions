@@ -54,3 +54,4 @@ const render = attractionsCollection => {
         </select>
         ` 
     }
+
