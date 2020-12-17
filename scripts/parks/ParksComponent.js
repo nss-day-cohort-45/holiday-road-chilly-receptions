@@ -61,9 +61,9 @@ almighty eventHub.
 */
 
 eventHub.addEventListener("click", event => {
-      if (event.target.id.startsWith("parksButton")) {
+      if (event.target.id.startsWith("restaurantButton")) {
         const secondHalfOfId = event.target.id.split("--")[1]
-        const customEvent = new CustomEvent("parkDetailsBtnClicked", {
+        const customEvent = new CustomEvent("restaurantDetailsBtnClicked", {
             detail: {
                 parkId: secondHalfOfId
             }

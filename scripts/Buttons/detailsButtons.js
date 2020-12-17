@@ -28,8 +28,8 @@ eventHub.addEventListener('attractionDetailsBtnClicked', evt => {
 
 eventHub.addEventListener('restaurantDetailsBtnClicked', evt => {
   const usingRestaurantId = evt.detail.restaurantId; 
-  const restaurant = copiedRestaurant(); 
-  const chosenRestaurant = restaurant.find(restaurant => restaurant.id === parseInt(usingRestaurantId)); 
+  const restaurants = getEateries(); 
+  const chosenRestaurant = restaurants.find(restaurant => restaurant.id === parseInt(usingRestaurantId)); 
 
   openDialogRestaurant(attractionPop(chosenRestaurant)); 
 });
