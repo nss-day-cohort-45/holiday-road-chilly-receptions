@@ -48,3 +48,17 @@ const render = eateriesCollection => {
         </select>
     `
 }
+
+
+eventHub.addEventListener("click", event => {
+  if (event.target.id.startsWith("restaurantButton")) {
+    const secondHalfOfId = event.target.id.split("--")[1]
+    const customEvent = new CustomEvent("restaurantDetailsBtnClicked", {
+        detail: {
+            restaurantId: secondHalfOfId
+        }
+    })
+
+    eventHub.dispatchEvent(customEvent)
+  }
+})

@@ -5,7 +5,7 @@ let attractions = []
 export const copiedAttractions = () => {
     return attractions.slice()
 } 
-console.log(attractions)
+//onsole.log(attractions)
 export const getAttractions = () => {
     return fetch("http://holidayroad.nss.team/bizarreries")
     .then (

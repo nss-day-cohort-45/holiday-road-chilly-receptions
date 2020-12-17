@@ -10,7 +10,7 @@ export const getParks = () => {
         response => response.json())
         .then(
             parsedParks => {
-                console.table(parsedParks)
+                //console.table(parsedParks)
                 parks = parsedParks.data
             }
         )    
