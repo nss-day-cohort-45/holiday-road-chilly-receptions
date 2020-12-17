@@ -1,5 +1,4 @@
 import { copiedAttractions, getAttractions} from "./AttractionProvider.js"
-
 const contentTarget = document.querySelector(".filters__attraction")
 const eventHub = document.querySelector(".container")
 
