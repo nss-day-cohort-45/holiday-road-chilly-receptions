@@ -1,5 +1,4 @@
 import { copiedAttractions, getAttractions} from "./AttractionProvider.js"
-
 const contentTarget = document.querySelector(".filters__attraction")
 const eventHub = document.querySelector(".container")
 
@@ -54,3 +53,16 @@ const render = attractionsCollection => {
         </select>
         ` 
     }
+
+    eventHub.addEventListener("click", event => {
+      if (event.target.id.startsWith("attractionButton")) {
+        const secondHalfOfId = event.target.id.split("--")[1]
+        const customEvent = new CustomEvent("attractionDetailsBtnClicked", {
+            detail: {
+                attractionId: secondHalfOfId
+            }
+        })
+
+        eventHub.dispatchEvent(customEvent)
+      }
+})
