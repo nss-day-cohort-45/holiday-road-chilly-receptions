@@ -20,7 +20,7 @@ eventHub.addEventListener('parkDetailsBtnClicked', evt => {
 eventHub.addEventListener('attractionDetailsBtnClicked', evt => {
   const usingAttractionId = evt.detail.attractionId; 
   const attractions = copiedAttractions(); 
-  const chosenAttraction = attractions.find(attraction => attraction.id === usingAttractionId); 
+  const chosenAttraction = attractions.find(attraction => attraction.id === parseInt(usingAttractionId)); 
 
   openDialogAttraction(attractionPop(chosenAttraction)); 
 });
@@ -61,7 +61,7 @@ const ParkCard = (chosenPark) => {
     // <div class="park-details__operatingHours"> ${chosenPark.operatingHours.standardHours} </div>
     // <div class="park-details__contacts"> ${chosenPark.contacts.phoneNumbers.phoneNumber} </div>
 
-    const attractionPop= (chosenAttraction) => {
+const attractionPop= (chosenAttraction) => {
       console.log("chosenAttraction", chosenAttraction)
 return `
     <section class="detailsAttraction">
