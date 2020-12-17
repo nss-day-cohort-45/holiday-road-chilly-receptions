@@ -7,12 +7,35 @@ const eventHub = document.querySelector(".container")
 const chosenPark = document.querySelector(".parkChosen")
 const chosenRestaurant = document.querySelector(".restaurantChosen")
 const chosenAttraction = document.querySelector(".attractionChosen")
+const saveButton = document.querySelector(".saveButton")
+
+eventHub.addEventListener('parkChosen', event => {
+  if (event.detail.parkThatWasChosen !== "0") {
+    renderSaveButton()
+  }
+})
+
+eventHub.addEventListener('restaurantChosen', event => {
+  if (event.detail.eateryThatWasChosen !== "0") {
+    renderSaveButton()
+  }
+})
+
+eventHub.addEventListener('attractionChosen', event => {
+  if (event.detail.attractionThatWasChosen !== "0") {
+    renderSaveButton()
+  }
+})
+
+export const renderSaveButton = () => {
+  saveButton.innerHTML = `<button id="saveButton">Save Button</button>`
+}
 
 // PARK SELECT - LISTENER
 eventHub.addEventListener('parkChosen', event => {
 
   // If the user's selected value is not 0
-  if (event.detail.parkThatWasChosen !== "0"){
+  if (event.detail.parkThatWasChosen !== "0"){ //if something is selected, populate what is selected
       
       // Store your copiedParks array into a variable
       const parks = copiedParks()
@@ -39,13 +62,14 @@ const renderParkName = (park) => {
   `
 }
 
+
 // Eatery SELECT - LISTENER
 eventHub.addEventListener('eateryChosen', event => {
 
   // If the user's selected value is not 0
   if (event.detail.eateryThatWasChosen !== "0"){
       
-      // Store your copie attractions array into a variable
+      // Store your copiedve attractions array into a variable
       const eateries = copiedEateries()
       // Finding one object that matches the restaurant ID to the restaurant value that was selected
       const eateryChosen = eateries.find( (aRestaurant) => aRestaurant.id === parseInt(event.detail.eateryThatWasChosen) )
