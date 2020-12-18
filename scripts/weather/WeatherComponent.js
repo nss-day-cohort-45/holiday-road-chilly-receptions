@@ -33,7 +33,7 @@ const renderWeatherForPark = (weather) => {
    */
   weatherHTML.innerHTML = `
   <section class="weatherContent">
-    <div><h2 class="parkForecast">Park Forecast</h2></div>
+  <div><h2 class="parkForecast">Park Forecast</h2></div> 
     <div class="rickiesBox">
       <div class="dailyForecast">
         <div class="weatherIcon"><img  src="http://openweathermap.org/img/wn/${weather.daily[0].weather[0].icon}.png"> </div>

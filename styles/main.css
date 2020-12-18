@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
 * {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Poppins', sans-serif;
     
 }
 
@@ -11,6 +13,7 @@ body {
     max-width: 10%;
     margin: 1rem 1rem 1rem 12rem;
     box-shadow: 5px 8px;
+    border-radius: 10%;
 }
 
 h2 {
@@ -66,8 +69,8 @@ footer {
 .itineraryPreview {
     display: flex;
     background-color: rgba(185, 207, 187, 0.534);
-    margin-left: -1rem;
-    margin-right: -1rem;
+    margin-left: 1rem;
+    margin-right: -3rem;
 }
 
 .intineraryPreviewBox{
@@ -85,10 +88,11 @@ footer {
     flex-direction: column;
 }
 
-.parkForecast {
+.parkForecast, .itineraryDetails {
     display: flex;
     justify-content: center;
     margin-top: 2rem;
+    margin-bottom: 1rem;
 }
 
 p {
@@ -106,14 +110,15 @@ p {
 
 .detailButton {
     margin-left: 1rem;
-    min-width: 300px;
-    margin-top: 2rem;
+    width: 300px;
+    height: 37.524px;
+    /* margin-top: 8px; */
 }
 
 .detailDialog {
     max-width: 300px; 
     box-shadow: 5px 10px;
-    background-color: darkgrey;
+    background-color: rgb(216, 230, 217);
 }
 
 .itineraryDetails {
@@ -138,4 +143,15 @@ p {
 
 .rickiesBox {
     display: flex;
+}
+
+#saveButton {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 1rem;
+}
+
+.itineraryAttraction {
+    display: flex;
+    justify-content: space-evenly;
 }
