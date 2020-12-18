@@ -205,4 +205,12 @@ https://graphhopper.com/api/1/route?point=starting_latitude,starting_longitude&p
 ![](./personas/persona-peter.png)
 
 ### Figma Wireframe
-![](./images/holiday-road.png)
+## Dependecy Graph
+![](./images/Dependency-Graph.png)
+
+## EventHub
+![](./images/EventHub.png)
+
+## Wireframe
+![](./images/Wireframe.png)
+
