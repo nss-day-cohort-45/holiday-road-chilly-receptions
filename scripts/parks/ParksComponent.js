@@ -44,10 +44,8 @@ const render = parksCollection => {
   `
 }
 
-
-// DETAILS BUTTON - DISPATCH
-
 /*
+                      DETAILS BUTTON - DISPATCH
 The user has clicked on a button that we are listen to (the button is Park 
 Details). The id on the button is parksButton--[cray ID]. We used split to
 put the id and the cray id into two objects inside of an array, and then sent
@@ -56,15 +54,16 @@ Details is an object contained within the custom event that we assigned the
 property of parkId, and we let that equal what we split off - the part that we
 wanted, which was the cray id from the park. And then we dispatched this
 */
-eventHub.addEventListener("click", event => {
-      if (event.target.id.startsWith("parksButton")) {
-        const secondHalfOfId = event.target.id.split("--")[1]
-        const customEvent = new CustomEvent("parkDetailsBtnClicked", {
-            detail: {
-                parkId: secondHalfOfId
-            }
-        })
 
-        eventHub.dispatchEvent(customEvent)
-      }
+eventHub.addEventListener("click", event => {
+  if (event.target.id.startsWith("parksButton")) {
+    const secondHalfOfId = event.target.id.split("--")[1]
+    const customEvent = new CustomEvent("parkDetailsBtnClicked", {
+        detail: {
+            parkId: secondHalfOfId
+        }
+    })
+
+    eventHub.dispatchEvent(customEvent)
+  }
 })

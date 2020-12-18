@@ -57,8 +57,11 @@ object.
 */
 const renderParkName = (park) => {
   chosenPark.innerHTML = `
-  <h2>Chosen Park: ${park.fullName}</h2>
-  <button id="parksButton--${park.id}">Park Details</button>
+  <div class="restaurantName">
+   <h2>Chosen Park:</h2>
+   <h3>${park.fullName}</h3>
+  </div>
+  <button class="detailButton" id="parksButton--${park.id}">Park Details</button>
   `
 }
 
@@ -75,15 +78,18 @@ eventHub.addEventListener('eateryChosen', event => {
       const eateryChosen = eateries.find( (aRestaurant) => aRestaurant.id === parseInt(event.detail.eateryThatWasChosen) )
       // Renders the full name of the restaurant which is a property on the object of restaurantChosen
       // We needed to go down and dot notate to get the fullName property
-      renderRestaurantName(eateryChosen.businessName)
+      renderRestaurantName(eateryChosen)
   }
 })
 
 // HTML representation of the full name of the chosen restaurant
-const renderRestaurantName = (restaurantName) => {
+const renderRestaurantName = (restaurantObj) => {
   chosenRestaurant.innerHTML = `
-  <h2>Chosen Restaurant: ${restaurantName}</h2>
-  <button id="restaurantButton--${restaurantName.id}">Restaurant Details</button>
+  <div class="restaurantName">
+    <h2>Chosen Restaurant:</h2>
+    <h3>${restaurantObj.businessName}</h3>
+  </div>
+  <button class="detailButton" id="restaurantButton--${restaurantObj.id}">Restaurant Details</button>
   `
 }
 
@@ -100,15 +106,18 @@ eventHub.addEventListener('attractionChosen', event => {
       // Renders the full name of the restaurant which is a property on the object of attractionChosen
       // We needed to go down and dot notate to get the Name property
       renderAttractionName(attractionChosen)
-      //console.log(attractionChosen.name)
+      console.log(attractionChosen.name)
   }
 })
 
 // HTML representation of the full name of the chosen attraction
 const renderAttractionName = (attractionName) => {
   chosenAttraction.innerHTML = `
-  <h2>Chosen Attraction: ${attractionName.name}</h2>
-  <button id="attractionButton--${attractionName.id}">Attraction Details</button> `
+  <div class="attractionName">
+    <h2>Chosen Attraction:</h2>
+    <h3>${attractionName.name}</h3>
+  </div>
+  <button class="detailButton" id="attractionButton--${attractionName.id}">Attraction Details</button> `
 }
 
 
