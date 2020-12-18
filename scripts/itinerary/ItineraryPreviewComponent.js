@@ -28,7 +28,7 @@ eventHub.addEventListener('attractionChosen', event => {
 })
 
 export const renderSaveButton = () => {
-  saveButton.innerHTML = `<button id="saveButton">Save Button</button>`
+  saveButton.innerHTML = `<button id="saveButton">Save Itinerary</button>`
 }
 
 // PARK SELECT - LISTENER
@@ -58,7 +58,6 @@ object.
 const renderParkName = (park) => {
   chosenPark.innerHTML = `
   <div class="restaurantName">
-   <h2>Chosen Park:</h2>
    <h3>${park.fullName}</h3>
   </div>
   <button class="detailButton" id="parksButton--${park.id}">Park Details</button>
@@ -86,7 +85,6 @@ eventHub.addEventListener('eateryChosen', event => {
 const renderRestaurantName = (restaurantObj) => {
   chosenRestaurant.innerHTML = `
   <div class="restaurantName">
-    <h2>Chosen Restaurant:</h2>
     <h3>${restaurantObj.businessName}</h3>
   </div>
   <button class="detailButton" id="restaurantButton--${restaurantObj.id}">Restaurant Details</button>
@@ -114,7 +112,6 @@ eventHub.addEventListener('attractionChosen', event => {
 const renderAttractionName = (attractionName) => {
   chosenAttraction.innerHTML = `
   <div class="attractionName">
-    <h2>Chosen Attraction:</h2>
     <h3>${attractionName.name}</h3>
   </div>
   <button class="detailButton" id="attractionButton--${attractionName.id}">Attraction Details</button> `
