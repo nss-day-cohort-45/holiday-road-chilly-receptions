@@ -11,3 +11,15 @@ ParkSelect()
 AttractionSelect()
 EateriesSelect() 
 renderSaveButton()
+
+
+const steph = {
+    currently: {
+        daily: "daily is annoying",
+        minutely: "rickie is awesome"
+    },
+    awesomeLevel: "100%"
+}
+
+
+console.log(steph.awesomeLevel)

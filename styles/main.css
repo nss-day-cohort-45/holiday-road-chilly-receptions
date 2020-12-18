@@ -1,10 +1,16 @@
 * {
     font-family: Arial, Helvetica, sans-serif;
+    
+}
+
+body {
+    /* background-color:  rgba(185, 207, 187, 0.534); */
 }
 
 .logo {
     max-width: 10%;
-    margin: 1rem;
+    margin: 1rem 1rem 1rem 12rem;
+    box-shadow: 5px 8px;
 }
 
 h2 {
@@ -15,6 +21,21 @@ h3 {
     margin: 0px;
 }
 
+.header {
+    background-color: rgba(185, 207, 187, 0.534);
+    /* background-color: #426D49; */
+    margin-left: -10rem;
+    margin-right: -10rem;
+}
+
+.title {
+    color: #426D49;
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding-top: 10px;
+    background-color: white;
+}
 
 footer {
     display: flex;
@@ -24,6 +45,10 @@ footer {
 
 .filters {
     display: flex;
+    justify-content: center;
+    background-color: white;
+    margin-left: -10rem;
+    margin-right: -10rem;
 }
 
 .filter {
@@ -35,26 +60,42 @@ footer {
     display: flex;
     justify-content: flex-end;
     align-content: flex-end;
+    margin-right: 2rem;
 }
 
 .itineraryPreview {
     display: flex;
-    background-color:palegoldenrod;
+    background-color: rgba(185, 207, 187, 0.534);
+    margin-left: -1rem;
+    margin-right: -1rem;
 }
 
 .intineraryPreviewBox{
-    margin: 1rem;
+    margin: 2rem 1rem 2rem 3rem;
     background-color: rgb(185, 207, 187);
     width: 50%;
     min-height: 300px;
 }
 
 .weatherBox {
-    margin: 1rem;
+    margin: 2rem 3rem 2rem 1rem;
     background-color: rgb(185, 207, 187);
     width: 50%;
+    display: flex;
+    flex-direction: column;
 }
 
+.parkForecast {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+p {
+    margin: 2em;
+    display: flex;
+    justify-content: center;
+}
 .park, .attraction, .restaurant {
     margin: 1rem;
 }
@@ -77,4 +118,24 @@ footer {
 
 .itineraryDetails {
    text-align: center;
+   margin-top: 2rem;
+}
+
+.invisible {
+    color: rgb(185, 207, 187)
+}
+
+.weatherIcon {
+    /* display: flex; */
+    text-align: center;
+}
+
+.weatherContent {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.rickiesBox {
+    display: flex;
 }
