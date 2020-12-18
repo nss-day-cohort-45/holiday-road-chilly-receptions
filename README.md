@@ -204,13 +204,13 @@ https://graphhopper.com/api/1/route?point=starting_latitude,starting_longitude&p
 
 ![](./personas/persona-peter.png)
 
-### Figma Wireframe
-## Dependecy Graph
+## Figma Wireframe
+### Dependency Graph
 ![](./images/Dependency-Graph.png)
 
-## EventHub
+### EventHub
 ![](./images/EventHub.png)
 
-## Wireframe
+### Wireframe
 ![](./images/Wireframe.png)
 
