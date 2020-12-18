@@ -57,8 +57,11 @@ object.
 */
 const renderParkName = (park) => {
   chosenPark.innerHTML = `
-  <h2>Chosen Park: ${park.fullName}</h2>
-  <button id="parksButton--${park.id}">Park Details</button>
+  <div class="restaurantName">
+   <h2>Chosen Park:</h2>
+   <h3>${park.fullName}</h3>
+  </div>
+  <button class="detailButton" id="parksButton--${park.id}">Park Details</button>
   `
 }
 
@@ -82,8 +85,11 @@ eventHub.addEventListener('eateryChosen', event => {
 // HTML representation of the full name of the chosen restaurant
 const renderRestaurantName = (restaurantObj) => {
   chosenRestaurant.innerHTML = `
-  <h2>Chosen Restaurant: ${restaurantObj.businessName}</h2>
-  <button id="restaurantButton--${restaurantObj.id}">Restaurant Details</button>
+  <div class="restaurantName">
+    <h2>Chosen Restaurant:</h2>
+    <h3>${restaurantObj.businessName}</h3>
+  </div>
+  <button class="detailButton" id="restaurantButton--${restaurantObj.id}">Restaurant Details</button>
   `
 }
 
@@ -107,8 +113,11 @@ eventHub.addEventListener('attractionChosen', event => {
 // HTML representation of the full name of the chosen attraction
 const renderAttractionName = (attractionName) => {
   chosenAttraction.innerHTML = `
-  <h2>Chosen Attraction: ${attractionName.name}</h2>
-  <button id="attractionButton--${attractionName.id}">Attraction Details</button> `
+  <div class="attractionName">
+    <h2>Chosen Attraction:</h2>
+    <h3>${attractionName.name}</h3>
+  </div>
+  <button class="detailButton" id="attractionButton--${attractionName.id}">Attraction Details</button> `
 }
 
 
