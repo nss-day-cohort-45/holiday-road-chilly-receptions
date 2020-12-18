@@ -7,6 +7,15 @@
     margin: 1rem;
 }
 
+h2 {
+    margin: 0px;
+}
+
+h3 {
+    margin: 0px;
+}
+
+
 footer {
     display: flex;
     justify-content: center;
@@ -23,5 +32,49 @@ footer {
 }
 
 .saveButton {
+    display: flex;
+    justify-content: flex-end;
+    align-content: flex-end;
+}
+
+.itineraryPreview {
+    display: flex;
+    background-color:palegoldenrod;
+}
+
+.intineraryPreviewBox{
     margin: 1rem;
+    background-color: rgb(185, 207, 187);
+    width: 50%;
+    min-height: 300px;
+}
+
+.weatherBox {
+    margin: 1rem;
+    background-color: rgb(185, 207, 187);
+    width: 50%;
+}
+
+.park, .attraction, .restaurant {
+    margin: 1rem;
+}
+
+.parkChosen, .attractionChosen, .restaurantChosen{
+    display: flex;
+}
+
+.detailButton {
+    margin-left: 1rem;
+    min-width: 300px;
+    margin-top: 2rem;
+}
+
+.detailDialog {
+    max-width: 300px; 
+    box-shadow: 5px 10px;
+    background-color: darkgrey;
+}
+
+.itineraryDetails {
+   text-align: center;
 }
